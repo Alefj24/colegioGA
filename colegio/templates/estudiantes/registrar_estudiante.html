@@ -1,0 +1,13 @@
+<!-- colegio_app/templates/colegio_app/registrar_estudiante.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Registrar Estudiante</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+  <a href="{% url 'lista_estudiantes' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}

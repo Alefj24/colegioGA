@@ -1,0 +1,13 @@
+<!-- colegio_app/templates/colegio_app/eliminar_estudiante.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Eliminar Estudiante</h2>
+  <p>¿Estás seguro de que deseas eliminar al estudiante {{ estudiante.usuario.get_full_name }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'lista_estudiantes' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}

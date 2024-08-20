@@ -1,0 +1,13 @@
+<!-- colegio_app/templates/colegio_app/actualizar_nota.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Actualizar Nota</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+  </form>
+  <a href="{% url 'lista_notas' %}" class="btn btn-secondary">Volver a la Lista</a>
+{% endblock %}

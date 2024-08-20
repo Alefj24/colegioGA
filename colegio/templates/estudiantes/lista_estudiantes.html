@@ -1,0 +1,30 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Lista de Estudiantes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Documento</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.documento }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_estudiante' pk=estudiante.pk %}">Actualizar</a> |
+                        <a href="{% url 'eliminar_estudiante' pk=estudiante.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No hay estudiantes registrados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
